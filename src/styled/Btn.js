@@ -17,11 +17,11 @@ const Btn = styled.a`
         font-size: 1.4rem;
     }
     &:hover {
+        text-decoration: none;
+        color: var(--black);
         -webkit-box-shadow: inset 0px 0px 0px 1px var(--black);
         -moz-box-shadow: inset 0px 0px 0px 1px var(--black);
         box-shadow: inset 0px 0px 0px 1px var(--black);
-        text-decoration: none;
-        color: var(--black);
     }
 `
 
@@ -37,6 +37,9 @@ export const AlternativeBtn = styled(Btn)`
         background: var(--darkgray);
         border-color: var(--darkgray);
         color: var(--white);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
     }
 `
 export const GrayBtn = styled(Btn)`
@@ -50,6 +53,9 @@ export const GrayBtn = styled(Btn)`
     }
     &:hover {
         background: var(--white);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
     }
 `
 export const WhiteBtn = styled(Btn)`
@@ -62,5 +68,8 @@ export const WhiteBtn = styled(Btn)`
     }
     &:hover {
         background: var(--brngraybg);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
     }
 `

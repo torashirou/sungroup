@@ -1,4 +1,4 @@
-const validate = (value, type, setError) => {
+const validate = (target, type, setError) => {
   const re = {
     letters: /.*[a-z]/gi,
     mail: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -9,34 +9,37 @@ const validate = (value, type, setError) => {
   let match;
   switch (type) {
     case 'text':
-      match = value.match(re.letters);
+      match = target.value.match(re.letters);
+      if (!target.required && target.value === '') {
+        return true;
+      }
       if (!match) {
         setError(true);
         return false;
       }
-      if (!(match[0] === value)) {
+      if (!(match[0] === target.value)) {
         setError(true);
         return false;
       }
       return true;
     case 'mail':
-      match = value.match(re.mail);
+      match = target.value.match(re.mail);
       if (!match) {
         setError(true);
         return false;
       }
-      if (!(match[0] === value)) {
+      if (!(match[0] === target.value)) {
         setError(true);
         return false;
       }
       return true;
     case 'phone':
-      match = value.match(re.phone);
+      match = target.value.match(re.phone);
       if (!match) {
         setError(true);
         return false;
       }
-      if (!(match[0] === value)) {
+      if (!(match[0] === target.value)) {
         setError(true);
         return false;
       }

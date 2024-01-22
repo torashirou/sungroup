@@ -19,7 +19,7 @@ function FormGroup(props) {
   return (
     <StyledFormGroup>
       <FormInput id="first_name" type="text" required label={literals.form.firstName} error={literals.form.firstNameError} setData={props.setFirstName}/>
-      <FormInput id="surname" type="text" required label={literals.form.surname} error={literals.form.surnameError} setData={props.setSurname}/>
+      <FormInput id="surname" type="text" label={literals.form.surname} error={literals.form.surnameError} setData={props.setSurname}/>
       <FormInput id="mail" type="mail" required label={literals.form.mail} error={literals.form.mailError} setData={props.setMail}/>
       <FormInput id="phone" type="phone" required label={literals.form.phone} error={literals.form.phoneError} setData={props.setPhone}/>
       <small>{literals.form.legend}</small>

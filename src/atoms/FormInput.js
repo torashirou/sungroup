@@ -11,7 +11,7 @@ function FormInput(props) {
     setError(false);
     const value = e.target.value;
     if (value !== '') setActive(true);
-    if (validate(value, props.type, setError)) props.setData(value);
+    if (validate(e.target, props.type, setError)) props.setData(value);
   }
 
   return (
