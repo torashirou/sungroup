@@ -26,5 +26,8 @@ export const AlternativeMenuBtn = styled(MenuBtn)`
   &:hover {
     background: var(--darkgray) !important;
     border-color: var(--darkgray);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
   }
 `

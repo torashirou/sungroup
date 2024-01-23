@@ -9,6 +9,7 @@ const StyledSelectTrigger = styled.div<{ active?: boolean; }>`
   position: relative;
   z-index: 1;
   cursor: pointer;
+  padding: 15px 0;
   &:hover {
     border-color: var(--black);
     z-index: 2;

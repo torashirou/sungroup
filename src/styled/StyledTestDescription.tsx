@@ -3,14 +3,15 @@ import { theme } from '../assets/App.style'
 
 const StyledTestDescription = styled.div`
   h3 {
-    font-size: 1.3rem;
-    font-weight: 200;
+    font-size: 2rem;
+    font-weight: 400;
     line-height: 1.5;
     display: block;
     margin-top: 20px;
     text-transform: uppercase;
     margin-bottom: 15px;
     @media ${theme.mediaQueries.tablet} {
+      font-weight: 200;
       font-size: 2.5rem;
       margin-top: 35px;
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import validate from '../assets/Validate';
+import { useFormContext } from "react-hook-form";
 import StyledFormInput from '../styled/StyledFormInput';
 
 interface FormInputProps {
@@ -8,26 +8,25 @@ interface FormInputProps {
   required?: boolean;
   label: string;
   errorProp: string;
-  setData: Function;
+  pattern: RegExp;
 }
 
-function FormInput( { id, type, required, label, errorProp, setData }: FormInputProps) {
+function FormInput({ id, type, required, label, errorProp, pattern }: FormInputProps) {
+  const { register, formState: { errors } } = useFormContext()
+
   const [active, setActive] = useState(false);
-  const [error, setError] = useState(false);
 
   const handleInput = (e: React.ChangeEvent) => {
     setActive(false);
-    setError(false);
     const value = (e.target as HTMLInputElement).value;
     if (value !== '') setActive(true);
-    if (validate((e.target as HTMLInputElement), type, setError)) setData(value);
   }
 
   return (
-    <StyledFormInput active={active} error={error}>
-      <input id={id} type={type} required={required} data-validate={type} onInput={(event: React.ChangeEvent<HTMLInputElement>) => handleInput(event)} />
+    <StyledFormInput active={active}>
+      <input id={id} type={type} {...register(id, { required: required, pattern: pattern })} onInput={(event: React.ChangeEvent<HTMLInputElement>) => handleInput(event)} />
       <label htmlFor={id}>{label}</label>
-      <small>{errorProp}</small>
+      <small>{errors[id] && errorProp}</small>
     </StyledFormInput>
   );
 }

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledFormInput = styled.div<{ active?: boolean; error?: boolean }>`
+const StyledFormInput = styled.div<{ active?: boolean }>`
   position: relative;
   margin-bottom: 20px;
   label, input {
@@ -40,10 +40,7 @@ const StyledFormInput = styled.div<{ active?: boolean; error?: boolean }>`
     font-weight: 300;
     position: absolute;
     right: 0;
-    display: none;
-    ${({ error }) => error ? css`
-    display: block
-    ` : ''}
+    display: block;
   }
   ${({ active }) => active ? css`
     label {

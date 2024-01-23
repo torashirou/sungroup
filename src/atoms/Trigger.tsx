@@ -6,7 +6,7 @@ interface TriggerProps {
   open: boolean;
   handleOpen: Function;
 }
-function Trigger( { open, handleOpen }: TriggerProps) {
+function Trigger({ open, handleOpen }: TriggerProps) {
   const handleClick = () => {
       handleOpen(!open);
   }

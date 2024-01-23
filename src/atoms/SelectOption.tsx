@@ -5,15 +5,13 @@ interface SelectOptionProps {
   name: string;
   img: string;
   setIndex: Function;
-  setData: Function;
   setActive: Function;
 }
 
-function SelectOption( { index, name, img, setIndex, setData, setActive }: SelectOptionProps) {
+function SelectOption({ index, name, img, setIndex, setActive }: SelectOptionProps) {
   const handleClick = () => {
     setIndex(index);
-    setData(name);
-    setActive(false)
+    setActive(false);
   }
   return (
     <StyledSelectOption onClick={handleClick}>

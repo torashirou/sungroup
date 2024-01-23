@@ -11,13 +11,12 @@ interface SelectListProps {
   data: Array<DataProps>;
   setIndex: Function;
   setActive: Function;
-  setData: Function;
 }
 
-function SelectList({ active, data, setIndex, setActive, setData}: SelectListProps) {
+function SelectList({ active, data, setIndex, setActive}: SelectListProps) {
   return (
     <StyledSelectList active={active}>
-        {data.map((data, i) => <SelectOption name={data.name} img={data.img} index={i} setIndex={setIndex} setActive={setActive} setData={setData} key={i} />)}
+        {data.map((data, i) => <SelectOption name={data.name} img={data.img} index={i} setIndex={setIndex} setActive={setActive} key={i} />)}
     </StyledSelectList>
   );
 }

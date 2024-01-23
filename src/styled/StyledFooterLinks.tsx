@@ -12,6 +12,7 @@ const StyledFooterLinks = styled.span`
     @media ${theme.mediaQueries.tablet} {
       display: inline;
       border-right: 1px solid var(--lightgray);
+      font-size: 1.3rem;
       &:last-child {
         border: 0;
       }

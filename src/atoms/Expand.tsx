@@ -6,7 +6,7 @@ interface ExpandProps {
   setData: Function;
 }
 
-function Expand( { hide, setData }: ExpandProps) {
+function Expand({ hide, setData }: ExpandProps) {
   const handleClick = () => {
     setData(true);
   }

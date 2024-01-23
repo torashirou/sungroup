@@ -7,7 +7,7 @@ interface ExpandTextProps {
   children?: string;
 }
 
-function ExpandText( { children }: ExpandTextProps) {
+function ExpandText({ children }: ExpandTextProps) {
   const [hide, setHide] = useState(false);
   const handleHideClick = () => {
     setHide(false);

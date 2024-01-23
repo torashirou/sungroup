@@ -8,7 +8,7 @@ interface FeatureDescriptionProps {
   description: string;
 }
 
-function FeatureDescription( { reverse, name, description }: FeatureDescriptionProps) {
+function FeatureDescription({ reverse, name, description }: FeatureDescriptionProps) {
     return (
         <StyledFeatureDescription reverse={reverse}>
           <h4>{name}</h4>

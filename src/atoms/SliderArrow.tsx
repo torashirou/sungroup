@@ -9,7 +9,7 @@ interface SliderArrowProps {
   inactive: boolean;
 }
 
-function SliderArrow( { prev, index, length, setIndex, inactive }: SliderArrowProps) {
+function SliderArrow({ prev, index, length, setIndex, inactive }: SliderArrowProps) {
 
   const handleClick = () => {
     if (prev && index === 0) return false;

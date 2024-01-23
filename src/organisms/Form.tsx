@@ -1,59 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useForm, SubmitHandler, FormProvider } from 'react-hook-form'
+import Inputs from '../assets/Types';
 import literals from "../assets/Literals";
 import { AlternativeBtn } from "../styled/Btn";
 import StyledForm from '../styled/StyledForm';
+import StyledFormGroup from '../styled/StyledFormGroup';
 import Select from "./Select";
 import FormGroup from "../molecules/FormGroup";
 import FormDescription from "../molecules/FormDescription";
 
 function Form() {
-  const [car, setCar] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [surname, setSurname] = useState('')
-  const [mail, setMail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [checkboxPersonal, setCheckboxPersonal] = useState(false)
-  const [checkboxMail, setCheckboxMail] = useState(false)
-  const [checkboxPhone, setCheckboxPhone] = useState(false)
-  const [checkboxSms, setCheckboxSms] = useState(false)
-  const [data, setData] = useState({
-    car: car,
-    firstName: firstName,
-    surname: surname,
-    mail: mail,
-    phone: phone,
-    checkboxPersonal: checkboxPersonal,
-    checkboxMail: checkboxMail,
-    checkboxPhone: checkboxPhone,
-    checkboxSms: checkboxSms
-  })
+  const methods = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  useEffect(() => {
-    setData({
-      car: car,
-      firstName: firstName,
-      surname: surname,
-      mail: mail,
-      phone: phone,
-      checkboxPersonal: checkboxPersonal,
-      checkboxMail: checkboxMail,
-      checkboxPhone: checkboxPhone,
-      checkboxSms: checkboxSms
-    })
-  }, [car, firstName, surname, mail, phone, checkboxPersonal, checkboxMail, checkboxPhone, checkboxSms])
-
-  const handleSubmit = () => {
-    console.log(data);
-  }
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <small>{literals.links.testRideMenuDesc}</small>
-      <h2>{literals.form.testRide}</h2>
-      <Select setData={setCar} />
-      <FormGroup setFirstName={setFirstName} setSurname={setSurname} setMail={setMail} setPhone={setPhone} />
-      <FormDescription setCheckboxPersonal={setCheckboxPersonal} setCheckboxMail={setCheckboxMail} setCheckboxPhone={setCheckboxPhone} setCheckboxSms={setCheckboxSms} />
-      <AlternativeBtn onClick={handleSubmit} href={literals.links.testRide}>{literals.links.testRideDesc}</AlternativeBtn>
-    </StyledForm>
+    <FormProvider {...methods}>
+      <StyledForm onSubmit={methods.handleSubmit(onSubmit)}>
+        <small>{literals.links.testRideMenuDesc}</small>
+        <h2>{literals.form.testRide}</h2>
+        <StyledFormGroup>
+          <Select />
+          <FormGroup />
+        </StyledFormGroup>
+        <FormDescription />
+        <AlternativeBtn onClick={methods.handleSubmit(onSubmit)} href={literals.links.testRide}>{literals.links.testRideDesc}</AlternativeBtn>
+      </StyledForm>
+    </FormProvider>
   );
 }
 
