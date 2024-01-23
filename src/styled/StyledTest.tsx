@@ -11,14 +11,13 @@ const StyledTest = styled.div`
 
   h2 {
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 200;
     line-height: 1.5;
     display: block;
     margin-top: 20px;
     text-transform: uppercase;
     margin-bottom: 15px;
     @media ${theme.mediaQueries.tablet} {
-      font-weight: 200;
       font-size: 3rem;
       margin-top: 30px;
     }
